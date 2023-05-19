@@ -103,7 +103,7 @@ export const config: WebdriverIOConfig = {
                 '--allow-file-access',
                 '--disable-infobars',
                 '--ignore-certificate-errors',
-                '--headless',
+                // '--headless',
                 '--disable-gpu',
                 '--window-size=1024x768',
             ]
