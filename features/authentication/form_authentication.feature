@@ -16,10 +16,10 @@ Feature: Form-Based Authentication
     Note: With **Serenity/JS** you can use [Markdown](https://en.wikipedia.org/wiki/Markdown)
     to better describe each `Feature` and `Scenario`.
 
-    When she logs in using "<username>" and "<password>"
+    When she logs in using "<username>" and "<password>" from "<city>"
     Then she should see that authentication has <outcome>
 
     Examples:
-      | username | password             | outcome   |
-      | tomsmith | SuperSecretPassword! | succeeded |
-      | foobar   | barfoo               | failed    |
+      | username | password             | outcome   | city |
+      | tomsmith | SuperSecretPassword! | succeeded | San Francisco |
+      | foobar   | barfoo               | failed    | San Francisco  |

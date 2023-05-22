@@ -4,6 +4,8 @@ import { Navigate } from '@serenity-js/web';
 
 import { Authenticate, VerifyAuthentication } from '../../test/authentication';
 import { PickExample } from '../../test/examples';
+import { ChangeApiConfig } from '@serenity-js/rest';
+import { GetWeather } from '../../test/tasks/GetWeather';
 
 /**
  * Below step definitions use Cucumber Expressions
@@ -15,14 +17,19 @@ Given('{actor} starts with the {string} example', async (actor: Actor, exampleNa
     actor.attemptsTo(
         Navigate.to('/'),
         PickExample.called(exampleName),
+        ChangeApiConfig.setUrlTo(process.env.WEATHER_SERVICE_BASE_URL)
+        
     )
 );
 
-When('{pronoun} log(s) in using {string} and {string}', async (actor: Actor, username: string, password: string) =>
-    actor.attemptsTo(
+When('{pronoun} log(s) in using {string} and {string} from {string}', async (actor: Actor, username: string, password: string, city: string) => {
+    const encodedCity = city.replace(' ', '%20')   
+    await actor.attemptsTo(
         Authenticate.using(username, password),
+        GetWeather.forClimateForecast(encodedCity)
+
     )
-);
+});
 
 /**
  * If you need to use a RegExp instead of Cucumber Expressions like {actor} and {pronoun}

@@ -1,5 +1,6 @@
-import { defineParameterType } from '@cucumber/cucumber';
-import { actorCalled, actorInTheSpotlight } from '@serenity-js/core';
+import { Before, defineParameterType } from '@cucumber/cucumber';
+import { actorCalled, actorInTheSpotlight, engage } from '@serenity-js/core';
+import { Actors } from '../../test/Actors';
 
 defineParameterType({
     regexp: /[A-Z][a-z]+/,
