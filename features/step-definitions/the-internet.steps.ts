@@ -17,7 +17,7 @@ Given('{actor} starts with the {string} example', async (actor: Actor, exampleNa
     actor.attemptsTo(
         Navigate.to('/'),
         PickExample.called(exampleName),
-        ChangeApiConfig.setUrlTo(process.env.WEATHER_SERVICE_BASE_URL)
+        ChangeApiConfig.setUrlTo('https://community-open-weather-map.p.rapidapi.com')
         
     )
 );

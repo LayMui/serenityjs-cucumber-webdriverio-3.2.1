@@ -12,6 +12,7 @@ const axiosInstance = axios.create({
     headers: { Accept: 'application/json' },
 });
 
+// https://janmolak.com/node-js-axios-behind-corporate-proxies-8b17a6f31f9d
 export class Actors implements Cast {
     prepare(actor: Actor): Actor {
         return actor.whoCan(
