@@ -1,6 +1,7 @@
-import { Before, defineParameterType } from '@cucumber/cucumber';
+import { Before, defineParameterType, setDefaultTimeout } from '@cucumber/cucumber';
 import { actorCalled, actorInTheSpotlight, engage } from '@serenity-js/core';
-import { Actors } from '../../test/Actors';
+
+setDefaultTimeout(50000000)
 
 defineParameterType({
     regexp: /[A-Z][a-z]+/,
